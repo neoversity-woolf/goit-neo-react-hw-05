@@ -33,7 +33,10 @@ export default function HomePage() {
   return (
     <>
       <main className={css.main}>
-        <h1>Tranding today</h1>
+        <h1>
+          Huge collection of movies
+          <span className="textGradient">Tranding today</span>
+        </h1>
 
         {trandingMovies && <MovieList movies={trandingMovies} />}
         {loading && <p>Loading movies...</p>}

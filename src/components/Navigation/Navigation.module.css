@@ -2,6 +2,7 @@
   grid-area: header;
 
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 3rem;
   padding: 1rem 0;
@@ -9,8 +10,28 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  /* gap: 2rem; */
+  width: 40%;
+  padding: 0.5rem;
+
+  background-color: #f8f9fa;
+  border-radius: 0.75rem;
 }
 .navLink {
-  padding: 1rem 0;
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 0.5rem 0;
+  color: #344767;
+
+  &:hover,
+  &:focus {
+    color: currentColor;
+  }
+}
+
+.active {
+  position: relative;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 5px 1px #ddd;
 }

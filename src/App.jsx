@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Navigation } from '@components';
+import { Navigation, Footer } from '@components';
 
 const HomePage = lazy(() => import('@pages/HomePage/HomePage'));
 const MoviesPage = lazy(() => import('@pages/MoviesPage/MoviesPage'));
@@ -28,6 +28,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      <Footer />
     </>
   );
 }

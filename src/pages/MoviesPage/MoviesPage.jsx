@@ -37,9 +37,17 @@ export default function MoviesPage() {
 
   return (
     <main className={css.main}>
-      <h1>Movies page</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="search" name="query" placeholder="Find movie..." />
+      <h1>
+        Discover Your Next Favorite Movie
+        <span className="textGradient">Search &gt; Watch &gt; Enjoy</span>
+      </h1>
+      <form className={css.searchForm} onSubmit={handleSubmit}>
+        <input
+          className={css.searchField}
+          type="search"
+          name="query"
+          placeholder="Find movie..."
+        />
         <button type="submit">Search</button>
       </form>
       {searchMovie.length !== 0 && <MovieList movies={searchMovie} />}
