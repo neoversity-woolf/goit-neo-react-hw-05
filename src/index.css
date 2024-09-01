@@ -16,10 +16,11 @@ body {
     '. header .'
     '. main .'
     '. footer .';
-  grid-template-columns: 1.25rem 1fr 1.25rem;
+  grid-template-columns: 1.25rem minmax(20rem, 57.5rem) 1.25rem;
   grid-template-rows: auto 1fr auto;
   width: clamp(20rem, 100%, 62rem);
   min-height: 100dvh;
+  margin: 0 auto;
 }
 
 h1 {
@@ -78,4 +79,17 @@ button {
   &:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
 }

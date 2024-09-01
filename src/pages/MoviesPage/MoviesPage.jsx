@@ -39,7 +39,7 @@ export default function MoviesPage() {
     <main className={css.main}>
       <h1>
         Discover Your Next Favorite Movie
-        <span className="textGradient">Search &gt; Watch &gt; Enjoy</span>
+        <span className="textGradient">Search &rarr; Watch &rarr; Enjoy</span>
       </h1>
       <form className={css.searchForm} onSubmit={handleSubmit}>
         <input

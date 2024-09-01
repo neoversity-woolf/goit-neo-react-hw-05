@@ -10,7 +10,6 @@
 .nav {
   display: flex;
   align-items: center;
-  /* gap: 2rem; */
   width: 40%;
   padding: 0.5rem;
 

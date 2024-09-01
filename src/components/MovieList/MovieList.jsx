@@ -6,6 +6,7 @@ import css from './MovieList.module.css';
 /* eslint-disable react/prop-types */
 export default function MovieList({ movies }) {
   const location = useLocation();
+
   return (
     <ul>
       {movies.map(({ title, id }) => (
