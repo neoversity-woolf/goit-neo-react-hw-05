@@ -7,6 +7,7 @@ import css from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const [searchMovie, setSearchMovie] = useState([]);
+  const [error, setError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams('');
   const query = searchParams.get('query') ?? '';
 
@@ -15,18 +16,21 @@ export default function MoviesPage() {
 
     async function getMoviesByQuery() {
       try {
+        setError(false);
         const { results } = await fetchMoviesByQuery(query);
         if (results.length === 0) {
+          setSearchParams({ query: '' });
           throw new Error('❌ Service unavailable');
         }
 
         setSearchMovie(results);
       } catch (error) {
         console.log(error.message);
+        setError(true);
       }
     }
     getMoviesByQuery();
-  }, [query]);
+  }, [query, setSearchParams]);
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -51,6 +55,7 @@ export default function MoviesPage() {
         <button type="submit">Search</button>
       </form>
       {searchMovie.length !== 0 && <MovieList movies={searchMovie} />}
+      {error && <p className={css.error}>❌ No movies found</p>}
     </main>
   );
 }
