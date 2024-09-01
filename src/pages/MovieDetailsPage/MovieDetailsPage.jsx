@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import {
   Link,
   NavLink,
@@ -14,7 +14,7 @@ import css from './MovieDetailsPage.module.css';
 
 export default function MovieDetailsPage() {
   const location = useLocation();
-  const backLinkHref = location.state ?? '/movies';
+  const linkRef = useRef(location.state ?? '/movies');
   const { movieId } = useParams();
   const [details, setDetails] = useState(null);
   const [error, setError] = useState(false);
@@ -35,7 +35,7 @@ export default function MovieDetailsPage() {
 
   return (
     <main className={css.details}>
-      <Link className={css.backward} to={backLinkHref}>
+      <Link className={css.backward} to={linkRef.current}>
         Go back
       </Link>
       <h1 className="visually-hidden">Movie Details Page</h1>
